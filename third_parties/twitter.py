@@ -6,13 +6,13 @@ import tweepy
 
 logger = logging.getLogger("twitter")
 
-twitter_client = tweepy.Client(
-    bearer_token=os.environ["TWITTER_BEARER_TOKEN"],
-    consumer_key=os.environ["TWITTER_API_KEY"],
-    consumer_secret=os.environ["TWITTER_API_SECRET"],
-    access_token=os.environ["TWITTER_ACCESS_TOKEN"],
-    access_token_secret=os.environ["TWITTER_ACCESS_SECRET"],
-)
+# twitter_client = tweepy.Client(
+#     bearer_token=os.environ["TWITTER_BEARER_TOKEN"],
+#     consumer_key=os.environ["TWITTER_API_KEY"],
+#     consumer_secret=os.environ["TWITTER_API_SECRET"],
+#     access_token=os.environ["TWITTER_ACCESS_TOKEN"],
+#     access_token_secret=os.environ["TWITTER_ACCESS_SECRET"],
+# )
 
 data = [
     {
@@ -45,8 +45,8 @@ data = [
 
 def scrape_user_tweets(username, num_tweets=5):
     """
-    Scrapes a Twitter user's original tweets (i.e., not retweets or replies) and returns them as a list of dictionaries
-    Each dictionary has three fields: "time_posted" (relative to now), "text", and "url"
+    Scrapes a Twitter user's original tweets (i.e., not retweets or replies) and returns them as a list of dictionaries.
+    Each dictionary has three fields: "time_posted" (relative to now), "text", and "url".
     """
 
     # user_id = twitter_client.get_user(username=username).data.id

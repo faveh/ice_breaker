@@ -9,14 +9,14 @@ from Tools.tools import get_profile_url
 # This function uses langchain agent to search online for a given name and return their twitter username
 def lookup(name: str) -> str:
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-    template = """given the full name {name_of_person} I want you to find a link to their Twitter profile page, and extract from it their username.
-    In your final answer only the person's username
-    """
+    template = """given the name {name_of_person} I want you to find a link to their Twitter profile page, and extract from it their username.
+       In Your Final answer only the person's username"""
+
     tools_for_agent = [
         Tool(
             name="Crawl Google 4 Twitter profile page",
             func=get_profile_url,
-            description="useful for when you need to get Twitter Page URL",
+            description="useful for when you need get the Twitter Page URL",
         )
     ]
 
@@ -32,4 +32,5 @@ def lookup(name: str) -> str:
     )
 
     twitter_username = agent.run(prompt_template.format_prompt(name_of_person=name))
+
     return twitter_username

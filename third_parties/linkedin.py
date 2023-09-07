@@ -18,7 +18,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str):
     return manipulate_data_response(response.json())
 
 
-def scrape_linkedin_profile_from_gist():
+def scrape_linkedin_profile_from_gist(linkedin_profile_url: str):
     response = requests.get(
         "https://gist.githubusercontent.com/faveh/a63922ab37ece1d5c2841344a6ec785f/raw/d6d97a151ba26bb207f7c3748b65ff90ab9edf99/eden-linkedin.json"
     )
